@@ -11,7 +11,7 @@ Real-estate seems to be really hot currently, with a lot of people looking to ma
   - [Summary of the Dataset](#summary-of-the-dataset)
   - [Exploratory Analysis](#eda)
 - [Data Cleaning and Feature Engineering](#cleaning)
-- [Model fitting and ensembling](#ensembling)
+- [Model fitting and ensemble](#ensemble)
 - [Conclusion](#conclusion)
 
 # Synopsis <a name="synopsis"></a>
@@ -55,12 +55,28 @@ https://www.kaggle.com/c/house-prices-advanced-regression-techniques
   
 # Data Cleaning and Feature Engineering <a name="cleaning"></a>
 
-Sentiment analysis can be conducted by training a supervised machine learning model on a portion of the review data which can be used to predict a rating that the user might assign just by the analyzing the review text.
+- The data contained a number of missing values for both numerical and categorical fields. The following methods were used to address the missing values:
+  - Drop columns were majority of the values are missing
+  - Drop columns were more almost all the values are of one category
+  - Impute values based on linear regression, mean or mode depending on suitability 
+- Feature engineering can add valuable information to the model by using exisiting features. Two new fewatures were created:
+  - Age of the house
+  - Total number of bathrooms
+ - Categorical values are converted to numerical by using ordinal encoding and one hot encoding.    
+
+## Model fitting and ensemble <a name="ensemble"></a>
+- Cross validation is used the ensure that the model is not overfitting on the data.
+- The following regression models are used:
+  - Light Gradient Boosting Regressor
+  - XGBoost Regressor
+  - Gradient Boosting Regressor
+  - Random Forest Regressor
+  - Stacking CV Regressor
+
+- The resuls obtained are then plotted and best 3 models are using to create and ensemble which is used in making predictions.
 
 ## Conclusion <a name="conclusion"></a>
 
-NLP in combination with Neural Networks has made is possible to analyze textual data and train very accurate models to predict sentiments. 
+A prediction RMSE of 0.133 is obtained. This can be further improved by conducting hyperparamter tuning and uisng more models in the ensemble. 
 
-- Predicted Reviews
 
-![Predicted](images/Distribution_of_ratings_predicted.PNG)
