@@ -33,57 +33,29 @@ https://www.kaggle.com/c/house-prices-advanced-regression-techniques
 
 ## Exploratory Analysis <a name="eda"></a>
 
- - From the plot below, it can be seen that majority of the ratings are 4 or 5. Which contradicts the initial itution that people only go to review something when they find it bad or not up to the mark. This might be a more special case since the data is for musical instruments and usually enthusiasts get something only when they know what they are getting.
-
-  ![Overall Ratings](images/Distribution_of_ratings.png)
-
-- Most reviewed genre was Pop followed by Alternative Rock. 
-
-  ![Genre Ratings](images/Distribution_of_ratings_category.png)
-
-- The following are the most reviewed products and the most active users.
-
-  ![Most Reviewed](images/Top_reviewed.png)
-  
-  ![Most Active](images/Top_reviewers.png)
-  
- - Sentiment distribution of most reviewed products.
+ - Tableau is a widely used software for data analysis, visualization and preparing dashboards. Data exploration for this project was conducted throught Tableau.
  
-  ![Most Reviewed Sentiment](images/Top_reviewed_sentiments.png)
- 
-- Wordcloud for negative sentiment reviews:
-  ![Negative Sentiment](images/Negative_wordcloud.png)
+ - It is typically percieved that houses built in the earlier years had more rooms and were more spacious. This myth is busted as shown by the box-plots below.
+
+  ![Area](images/Year_built_vs_area.PNG)
   
-# Sentiment Analysis and Review Prediction <a name="sentiment"></a>
+  ![Rooms](images/Year_built_vs_rooms.PNG)
+  
+- Sale price and building foundation do not seem to be too correlated, increasing lot size does increase the sale price as depicted by bigger circles. 
+
+  ![Foundation](images/foundation_price_area.PNG)
+
+- Did a particular type of roof become old fashioned? Or did a certain style of house come in fashion? As seen from the plot below, Split Foyer and Split Level became more popular around the 1960's. Gable roof type is the most common across different years and house styles.
+
+  ![Roof Style](images/Year_built_vs_house_roof.PNG)
+
+- We are all aware the historically, house prices have been going up. Lets instead try and compare the difference in prices of old and new houses and the condition they are sold in. It is interesting to note that there was a slight dip in the prices for houses built and sold during the economic crisis in 2008.
+
+  ![Roof Style](images/Price_vs_year_condition.PNG)
+  
+# Data Cleaning and Feature Engineering <a name="cleaning"></a>
 
 Sentiment analysis can be conducted by training a supervised machine learning model on a portion of the review data which can be used to predict a rating that the user might assign just by the analyzing the review text.
-
-## Multi-class classifcation <a name="classification"></a>
-
-In order to do this, a Logistic Regression model and a Multi-class Naive Bayes model is trained on the vectorized review data. The data is vectorized using tf-Idf which counts how frequently a word appears in a review and then penalizes it based on its occurance in the entire set of reviews.
-
-- Logistic Regression model gives a train accuracy of 70%.
-
-  ![Regression](images/logistic_regression_matrix.png)
-  
-- Naive Bayes model gives a train accuracy of 73%.
-
-  ![Bayes](images/naive_bayes.PNG)
-
-## Neural Networks - LSTM <a name="classification"></a>
-
-In order to improve on this accuracy a few step are taken:
-1. Glove word embeddings are used to vectorize the data. These embeddings are pretrained on a number of features and help classify different words together.
-2. A regression type model is used instead of classification. 
-3. Neural networks framework in Keras is used with LSTM. Long Short-Term Memory (LSTM) network is a type of RNN capable of learning order dependence in sequence prediction problems. 
-4. In addition to the review text, price and genre are also included as features in the NN. Genre is one-hot-encoded and price is standardized for this.
-
-- Proposed LSTM model
-  ![LSTM](images/lstm.PNG)
-
-Hyper-parameter tuning is conduced for the model and then the model is fitted on the train dataset. 
-
-An MSE of 0.42 is obtained for the train set and 0.48 for the test set. 
 
 ## Conclusion <a name="conclusion"></a>
 
