@@ -22,7 +22,7 @@ We will use Tableau for the Exploratory analysis and ensembling techniques to pr
 
 # Dataset <a name="dataset"></a>
 
-The datasets used for this part of the project can be found on Kaggle: 
+The datasets used for project can be found on Kaggle: 
 
 https://www.kaggle.com/c/house-prices-advanced-regression-techniques
 
