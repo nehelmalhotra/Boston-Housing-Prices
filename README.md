@@ -16,7 +16,7 @@ Real-estate seems to be really hot currently, with a lot of people looking to ma
 
 # Synopsis <a name="synopsis"></a>
 
-The hosuing market has been really hot the past few years due to the really low interest rates. In the project we will train a supervised model to predict the house prices in Boston based on parameters such as number of rooms, area, year built, etc. 
+The housing market has been really hot the past few years due to the really low interest rates. In the project we will train a supervised model to predict the house prices in Boston based on parameters such as number of rooms, area, year built, etc. 
 
 We will use Tableau for the Exploratory analysis and ensembling techniques to predict the final prices!
 
